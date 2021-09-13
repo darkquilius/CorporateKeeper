@@ -5,17 +5,17 @@ import CompanyCard from "../components/CompanyCard";
 import { useGlobalContext } from "../components/context/context";
 
 const AllCompanies = () => {
-  const { companiesList } = useGlobalContext();
+  const { companiesList, setCompaniesList } = useGlobalContext();
 
-  const [companies, setCompanies] = useState(companiesList);
+  const [companies] = useState(companiesList);
 
   const filterList = (event) => {
     console.log(event);
-    const newCompanies = companiesList.filter((company) => {
+    const newCompanies = companies.filter((company) => {
       const regexp = RegExp("\\b" + event, "gi");
       return company.name.match(regexp);
     });
-    setCompanies(newCompanies);
+    setCompaniesList(newCompanies);
   };
 
   return (
@@ -30,7 +30,7 @@ const AllCompanies = () => {
         ></input>
       </UtilityWrapper>
       <CompanyCardWrapper>
-        {companies.map((company) => {
+        {companiesList.map((company) => {
           return <CompanyCard key={company.name} {...company} />;
         })}
       </CompanyCardWrapper>
