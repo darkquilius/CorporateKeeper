@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CompanyListProvider } from './components/context/context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <CompanyListProvider>
     <App />
-  </React.StrictMode>,
+    </CompanyListProvider>,
   document.getElementById('root')
 );
 
