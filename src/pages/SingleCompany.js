@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Column3D from "../components/charts/Column3d";
 import { useLocation } from "react-router-dom";
 import Info from "../components/Info";
-import Contact from "../components/Contact";
+import ContactCard from "../components/ContactCard";
 
 const SingleCompany = () => {
   const { name, contact } = useLocation().state;
@@ -17,9 +17,6 @@ const SingleCompany = () => {
 
   return (
     <Wrapper>
-      <div>
-        <h1>{name}</h1>
-      </div>
       <ButtonContainer>
         <button
           onClick={() => {
@@ -49,6 +46,9 @@ const SingleCompany = () => {
           Contacts
         </button>
       </ButtonContainer>
+      <div>
+        <h1>{name}</h1>
+      </div>
       <div
         className="infoContainer"
         style={{ display: showInfo ? "block" : "none" }}
@@ -138,13 +138,15 @@ const SingleCompany = () => {
         className="contactsContainer"
         style={{ display: showContacts ? "block" : "none" }}
       >
-        <Contact {...contact} />
+        {contact && <ContactCard {...contact} />}
+        {!contact && <h1>No Contacts....</h1>}
       </div>
     </Wrapper>
   );
 };
 
 const ButtonContainer = styled.div`
+padding-top: 20px;
   display: flex;
   justify-content: space-evenly;
   button {
@@ -217,13 +219,13 @@ const Wrapper = styled.div`
     font-size: 2rem;
   }
 
-  .contactsContainer {
-    padding-top: 50px;
-    line-height: 1;
+  .infoContainer{
+    line-height: .5;
+
   }
 
-  .infoContainer {
-    padding-top: 10px;
+  .contactsContainer {
+    line-height: 1;
   }
 `;
 
