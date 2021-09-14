@@ -17,16 +17,16 @@ const ContactCard = ({ picture, firstName, lastName, position, phone, email }) =
 
     return (
         <StyledContactCard>
-<div class="container">
-  <div class="card">
-    <div class="front">
-      <div class="logo contactImg"style={{backgroundImage: `url(${picture? picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwVm7UV1DxZ-d7pwo96Moy4isTIAKOXrRvg&usqp=CAU"})`, }}><span>{}</span></div>
+<div className="container">
+  <div className="card">
+    <div className="front">
+      <div className="logo contactImg"style={{backgroundImage: `url(${picture? picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwVm7UV1DxZ-d7pwo96Moy4isTIAKOXrRvg&usqp=CAU"})`, }}><span>{}</span></div>
       <div style={{paddingLeft: "15px", lineHeight: ".25", color: "#070a5a"}}>
       <h5 >{checkNull(firstName)}</h5>
       <h5>{checkNull(lastName)}</h5>
       </div>
     </div>
-    <div class="back">
+    <div className="back">
       <h3>{checkNull(firstName)} {checkNull(lastName)}<span>{checkNull(position)}</span></h3>
       <ul style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>
         <li>{checkNull(formatPhoneNumber(phone))}</li>
