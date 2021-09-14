@@ -12,7 +12,7 @@ const Info = ({
   const checkSize = (i) => (i >= 10000 ? "10000+" : i);
 
   return (
-    <>
+    <div>
       <h5>
         Industry: <span>{checkNull(industry)}</span>
       </h5>
@@ -36,7 +36,7 @@ const Info = ({
           {checkNull(website)}
         </a>
       </h5>
-    </>
+    </div>
   );
 };
 

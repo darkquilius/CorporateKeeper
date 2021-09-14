@@ -10,7 +10,6 @@ const AllCompanies = () => {
   const [companies] = useState(companiesList);
 
   const filterList = (event) => {
-    console.log(event);
     const newCompanies = companies.filter((company) => {
       const regexp = RegExp("\\b" + event, "gi");
       return company.name.match(regexp);
@@ -22,7 +21,7 @@ const AllCompanies = () => {
     <div>
       <UtilityWrapper>
         <button>
-          <Link to="/createCompany">Add Company</Link>
+          <Link className="link" to="/createCompany">Add Company</Link>
         </button>
         <input
           placeholder="Search"
@@ -42,6 +41,15 @@ const UtilityWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  .link {
+    text-decoration: none;
+    color:black;
+  }
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color:black;
+  }
 `;
 const CompanyCardWrapper = styled.div`
   display: grid;
@@ -49,13 +57,23 @@ const CompanyCardWrapper = styled.div`
     props.children.length > 1 ? "1fr 1fr 1fr" : "1fr"};
   grid-gap: 60px;
 
-  @media screen and (max-width: 800px) {
+  @media (max-width: 599px) {
     grid-template-columns: "1fr";
   }
 
-  @media screen and (max-width: 1200px) and (min-width: 800) {
+  @media (min-width: 600px) and (max-width: 1000px){
     grid-template-columns: ${(props) =>
       props.children.length > 1 ? "1fr 1fr" : "1fr"};
+  }
+
+  @media (min-width: 1400px) and (max-width:1800px){
+    grid-template-columns: ${(props) =>
+      props.children.length > 1 ? "1fr 1fr 1fr 1fr" : "1fr"};
+  }
+
+  @media (min-width: 1801px){
+    grid-template-columns: ${(props) =>
+    props.children.length > 1 ? "1fr 1fr 1fr 1fr 1fr" : "1fr"};
   }
 `;
 

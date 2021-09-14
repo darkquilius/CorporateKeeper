@@ -11,7 +11,7 @@ const CompanyCard = (company) => {
       <CardHeader>
         <CardHeading>
           <Link
-          className="link"
+            className="link"
             to={{
               pathname: `/singlecompany/${company.name}`,
               state: company,
@@ -35,6 +35,7 @@ const CompanyCard = (company) => {
       <CardButtonWrapper>
         <button>
           <Link
+            className="link"
             to={{
               pathname: `/editCompany/${company.name}`,
               state: { ...company },
@@ -71,31 +72,42 @@ const CardWrapper = styled.div`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   align-items: stretch;
+  background-color: #e8eff4;
 `;
 
 const CardHeader = styled.header`
   padding-bottom: 8px;
-  .link{
+  .link {
     text-decoration: none;
     width: 100%;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
   }
-  a:link, a:visited {
-  background-color: #9cc2cf;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-}
+  a:link,
+  a:visited {
+    background-color: #385E72;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    white-space: pre-wrap; /* CSS3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
 
-a:hover, a:active {
-  background-color: blue;
-}
-
+  a:hover,
+  a:active {
+    background-color: #6AABD2;
+  }
 `;
 
 const CardHeading = styled.h1`
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
+  height: 120px;
 `;
 
 const CardBody = styled.div`
@@ -110,10 +122,15 @@ const CardButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
 
-  a:link, a:visited {
-  text-decoration: none;
-  display: inline-block;
-}
+  a:link,
+  a:visited {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .link {
+    color: black;
+  }
 
   button {
     height: 30px;
@@ -131,7 +148,7 @@ const CardOptionsNote = styled.small`
 
 const CardOptions = styled.ul`
   padding: 0;
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

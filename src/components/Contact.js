@@ -7,11 +7,11 @@ const Contact = ({ picture, firstName, lastName, position, phone, email }) => {
     return (
         <div>
         <img src={picture? picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwVm7UV1DxZ-d7pwo96Moy4isTIAKOXrRvg&usqp=CAU"} alt="Contact"></img>
-        <div>First Name: {checkNull(firstName)}</div>
-        <div>Last Name: {checkNull(lastName)}</div>
-        <div>Position: {checkNull(position)}</div>
-        <div>Phone: {checkNull(phone)}</div>
-        <div>Email: {checkNull(email)}</div>
+        <h5>First Name: {checkNull(firstName)}</h5>
+        <h5>Last Name: {checkNull(lastName)}</h5>
+        <h5>Position: {checkNull(position)}</h5>
+        <h5>Phone: {checkNull(phone)}</h5>
+        <h5>Email: {checkNull(email)}</h5>
       </div>
     );
 };
