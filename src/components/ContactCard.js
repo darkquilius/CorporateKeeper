@@ -29,7 +29,7 @@ const ContactCard = ({ picture, firstName, lastName, position, phone, email }) =
     <div class="back">
       <h3>{checkNull(firstName)} {checkNull(lastName)}<span>{checkNull(position)}</span></h3>
       <ul style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>
-        <li>{formatPhoneNumber(checkNull(phone))}</li>
+        <li>{checkNull(formatPhoneNumber(phone))}</li>
         <li>{checkNull(email)}</li>
         </ul>
     </div>

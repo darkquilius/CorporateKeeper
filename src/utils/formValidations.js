@@ -1,13 +1,15 @@
 export function validateRequired(value) {
         if (!value) {
-            return "A value is required";
+          var res = '\nA value is required'
+          return res;
             }
             return false;
         }
       
 export function validateNumber(value) {
         if (/^\d+$/.test(value) === false && value !== null && value !== undefined) {
-          return "A number is required for this field";
+          var res = '\nProvide a Number for this field'
+          return res;
         }
         return false;
       }

@@ -5,7 +5,12 @@ import { useForm, useField, splitFormProps } from "react-form";
 import { useHistory } from "react-router-dom";
 import { useGlobalContext } from "./context/context";
 
-import { validateRequired, validateNumber, validateEmail } from "../utils/formValidations";
+import {
+  validateRequired,
+  validateNumber,
+  validateEmail,
+} from "../utils/formValidations";
+import { StyledForm } from "./FormStyles";
 
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
@@ -51,118 +56,121 @@ const CreateForm = () => {
   });
 
   return (
-    <Form>
-      <h1>Add a Company</h1>
-      <div>
-        <label>
-          Company Name: <InputField field="name" validate={validateRequired} />
-        </label>
-      </div>
-      <Collapsible trigger={"+ Add Info"}>
-        <div>
-          <div>
-            <label>
-              Industry: <InputField field="info.industry" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Company Size:{" "}
-              <InputField field="info.companySize" validate={validateNumber} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Headquarters: <InputField field="info.headquarters" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Founding Year:{" "}
-              <InputField field="info.foundingYear" validate={validateNumber} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Website: <InputField field="info.website" />
-            </label>
-          </div>
+    <StyledForm>
+      <Form className="card">
+        <h1>Add a Company</h1>
+        <div className="inputGroup">
+          <label className="inputLabel">Company Name: </label>
+          <InputField
+            className="inputField"
+            field="name"
+            validate={validateRequired}
+          />
         </div>
-      </Collapsible>
-
-      <Collapsible trigger={"+ Add Finances"}>
-        <div>
-          <div>
-            <label>
-              Total Assets:{" "}
-              <InputField field="finances.assets" validate={validateNumber} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Total Liabilities:{" "}
+        <Collapsible trigger={"+ Add Info"}>
+            <div className="inputGroup">
+              <label className="inputLabel">Industry: </label>
+              <InputField className="inputField" field="info.industry" />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Company Size: </label>
               <InputField
+                className="inputField"
+                field="info.companySize"
+                validate={validateNumber}
+              />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Headquarters:</label>
+              <InputField className="inputField" field="info.headquarters" />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Founding Year: </label>
+              <InputField
+                className="inputField"
+                field="info.foundingYear"
+                validate={validateNumber}
+              />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Website:</label>
+              <InputField className="inputField" field="info.website" />
+            </div>
+        </Collapsible>
+
+        <Collapsible trigger={"+ Add Finances"}>
+            <div className="inputGroup">
+              <label className="inputLabel">Total Assets: </label>
+              <InputField
+                className="inputField"
+                field="finances.assets"
+                validate={validateNumber}
+              />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Total Liabilities: </label>
+              <InputField
+                className="inputField"
                 field="finances.liabilities"
                 validate={validateNumber}
               />
-            </label>
-          </div>
-          <div>
-            <label>
-              Total Income:{" "}
-              <InputField field="finances.income" validate={validateNumber} />
-            </label>
-          </div>{" "}
-          <div>
-            <label>
-              Total Expenses:{" "}
-              <InputField field="finances.expenses" validate={validateNumber} />
-            </label>
-          </div>
-        </div>
-      </Collapsible>
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Total Income: </label>
+              <InputField
+                className="inputField"
+                field="finances.income"
+                validate={validateNumber}
+              />
+            </div>{" "}
+            <div className="inputGroup">
+              <label className="inputLabel">Total Expenses: </label>
+              <InputField
+                className="inputField"
+                field="finances.expenses"
+                validate={validateNumber}
+              />
+            </div>
+        </Collapsible>
 
-      <Collapsible trigger={"+ Add Contact"}>
+        <Collapsible trigger={"+ Add Contact"}>
+            <div className="inputGroup">
+              <label className="inputLabel">First Name:</label>
+              <InputField className="inputField" field="contact.firstName" />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Last Name:</label>
+              <InputField className="inputField" field="contact.lastName" />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Position:</label>
+              <InputField className="inputField" field="contact.position" />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Email:</label>
+              <InputField
+                className="inputField"
+                field="contact.email"
+                validate={validateEmail}
+              />
+            </div>
+            <div className="inputGroup">
+              <label className="inputLabel">Phone:</label>
+              <InputField
+                className="inputField"
+                field="contact.phone"
+                validate={validateNumber}
+              />
+            </div>
+        </Collapsible>
+
         <div>
-          <div>
-            <label>
-              First Name:
-              <InputField field="contact.firstName" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Last Name:
-              <InputField field="contact.lastName" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Position:
-              <InputField field="contact.position" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Email:
-              <InputField field="contact.email" validate={validateEmail} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Phone:
-              <InputField field="contact.phone" validate={validateNumber} />
-            </label>
-          </div>
+          <button type="submit" disabled={!canSubmit}>
+            Submit
+          </button>
         </div>
-      </Collapsible>
-
-      <div>
-        <button type="submit" disabled={!canSubmit}>
-          Submit
-        </button>
-      </div>
-    </Form>
+      </Form>
+    </StyledForm>
   );
 };
 export default CreateForm;

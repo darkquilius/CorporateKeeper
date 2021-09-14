@@ -118,7 +118,7 @@ const SingleCompany = () => {
               <p>Total Expenses: <span style={{color: "#ff1919",}}>${expenses.toLocaleString()}</span></p>
               <span>------------------------------------------</span>
               <p>
-                Net A/L:{" "}
+                Net I/E:{" "}
                 <span
                   style={{
                     color: income - expenses > 0 ? "#006600" : "#ff1919",
@@ -139,7 +139,7 @@ const SingleCompany = () => {
         style={{ display: showContacts ? "block" : "none" }}
       >
         {contact && <ContactCard {...contact} />}
-        {!contact && <h1>No Contacts....</h1>}
+        {!contact && <h1>Contacts Unavailable....</h1>}
       </div>
     </Wrapper>
   );
@@ -212,11 +212,11 @@ const Wrapper = styled.div`
   text-align: center;
 
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   h5 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .infoContainer{
