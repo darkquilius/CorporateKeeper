@@ -21,15 +21,23 @@ export const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 425px;
+    max-width: 600px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(#999, 0.25);
     padding: 0.75rem;
+    h1{
+      text-align: center;
+    }
   }
 
   .inputGroup {
     width: 100%;
+    em{
+      padding-left: 180px;
+      color: red;
+      font-size: 18px;
+    }
   }
   .inputLabel {
     width: 40%;

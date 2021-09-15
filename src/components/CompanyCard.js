@@ -73,10 +73,10 @@ const CardWrapper = styled.div`
   border-radius: 5px;
   align-items: stretch;
   background-color: #e8eff4;
+  position:relative;
 `;
 
 const CardHeader = styled.header`
-  padding-bottom: 8px;
   .link {
     text-decoration: none;
     width: 100%;
@@ -113,14 +113,19 @@ const CardHeading = styled.h1`
 const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
+  padding-bottom: 48px;
 `;
 
 const CardButtonWrapper = styled.div`
-  padding-right: 32px;
+  /* padding-right: 32px;
   padding-left: 32px;
-  padding-top: 32px;
+  padding-top: 32px; */
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 16px;
 
   a:link,
   a:visited {

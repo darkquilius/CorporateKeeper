@@ -9,6 +9,8 @@ import {
   validateRequired,
   validateNumber,
   validateEmail,
+  validateWebsite,
+  validatePhone,
 } from "../utils/formValidations";
 import { StyledForm } from "./FormStyles";
 
@@ -94,7 +96,7 @@ const CreateForm = () => {
             </div>
             <div className="inputGroup">
               <label className="inputLabel">Website:</label>
-              <InputField className="inputField" field="info.website" />
+              <InputField className="inputField" field="info.website" validate={validateWebsite}/>
             </div>
         </Collapsible>
 
@@ -159,7 +161,7 @@ const CreateForm = () => {
               <InputField
                 className="inputField"
                 field="contact.phone"
-                validate={validateNumber}
+                validate={validatePhone}
               />
             </div>
         </Collapsible>
